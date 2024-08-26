@@ -63,7 +63,19 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     "rebelot/kanagawa.nvim",
+    "romainl/Apprentice",
+    "EdenEast/nightfox.nvim",
+    "sainnhe/edge",
+    "sainnhe/everforest",
+
 })
 
-vim.cmd.colorscheme("kanagawa-wave")
+-- vim.cmd.colorscheme("kanagawa-wave")
+vim.cmd.colorscheme("apprentice")
+
+-- key maps --
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
