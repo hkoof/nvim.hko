@@ -1,0 +1,44 @@
+# Neovim notes
+#
+
+## show current value of an option, e.g. rtp (alias runtimepath)
+```ascii
+:echo &runtimepath
+```
+
+## show current value of an option, in a new (split) window
+
+```ascii
+:new | put =split(&runtimepath, ',')
+```
+
+## show current value of an option using lua
+
+```ascii
+:lua print(vim.inspect(vim.api.nvim_list_runtime_paths()))
+```
+
+```ascii
+:lua =vim.opt.runtimepath._value
+```
+
+
+# Changing runtimepath using vimscript
+
+```ascii
+let &runtimepath.=', "~/.config/nvim/lua"'
+```
+
+# Changing runtimepath using vimscript
+
+```ascii
+lua vim.opt.runtimepath:append(',~/.config/nvim/lua')
+```
+
+Or, the ugly way:
+
+```ascii
+vim.api.nvim_command('set runtimepath^=~/.vim')
+```
+
+
