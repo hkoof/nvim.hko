@@ -1,0 +1,9 @@
+{
+  "Apprentice": { "branch": "master", "commit": "cb051ec95d12fa34169bb384142b8e50e328cd97" },
+  "edge": { "branch": "master", "commit": "2de1aede94569f643de438391f6c8b1712038d35" },
+  "everforest": { "branch": "master", "commit": "4bca38c58be8255fa20a87670df684320974d88c" },
+  "kanagawa.nvim": { "branch": "master", "commit": "e5f7b8a804360f0a48e40d0083a97193ee4fcc87" },
+  "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
+  "nightfox.nvim": { "branch": "main", "commit": "d3e8b1acc095baf57af81bb5e89fe7c4359eb619" },
+  "nvim-treesitter": { "branch": "master", "commit": "2eb50352c039009cf046f43241b649b162ee5148" }
+}
