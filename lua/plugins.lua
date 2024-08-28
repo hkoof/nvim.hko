@@ -57,6 +57,17 @@ require("lazy").setup({
                 highlight = {
                     enable = true,
                 },
+
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+                        -- set these to `false` to disable one of the mappings
+						init_selection = "<Leader>is",
+						node_incremental = "<Leader>si",
+						scope_incremental = "<Leader>sc",
+						node_decremental = "<Leader>sd",
+					},
+				},
             })
         end,
     },
