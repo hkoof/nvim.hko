@@ -16,13 +16,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 --  -- -- Some general options as recommended by Lazy.nvim
---  -- -- 
+--  -- --
 --  -- Make sure to setup `mapleader` and `maplocalleader` before
 --  -- loading lazy.nvim so that mappings are correct.
 --  -- This is also a good place to setup other settings (vim.opt)
 --  vim.g.mapleader = " "
 --  vim.g.maplocalleader = "\\"
---  
+--
 --  -- Setup lazy.nvim
 --  require("lazy").setup({
 --    spec = {
@@ -62,19 +62,19 @@ require("lazy").setup({
                 },
 
                 indent = {
-                    enable = true 
+                    enable = true
                 },
 
-				incremental_selection = {
-					enable = true,
-					keymaps = {
+                incremental_selection = {
+                    enable = true,
+                    keymaps = {
                         -- set these to `false` to disable one of the mappings
-						init_selection = "<Leader>ss",
-						node_incremental = "<Leader>si",
-						scope_incremental = "<Leader>sc",
-						node_decremental = "<Leader>sd",
-					},
-				},
+                        init_selection = "<Leader>ss",
+                        node_incremental = "<Leader>si",
+                        scope_incremental = "<Leader>sc",
+                        node_decremental = "<Leader>sd",
+                    },
+                },
             })
         end,
     },
@@ -86,7 +86,7 @@ require("lazy").setup({
             -- see :help Presenting.config
         },
         cmd = { "Presenting" },
-    }
+    },
 })
 
 
