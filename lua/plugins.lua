@@ -50,19 +50,26 @@ require("lazy").setup({
 
     {
         "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
+                sync_install = false, -- Install parsers synchronously (only applied to `ensure_installed`)
                 auto_install = true,
+
                 highlight = {
                     enable = true,
+                },
+
+                indent = {
+                    enable = true 
                 },
 
 				incremental_selection = {
 					enable = true,
 					keymaps = {
                         -- set these to `false` to disable one of the mappings
-						init_selection = "<Leader>is",
+						init_selection = "<Leader>ss",
 						node_incremental = "<Leader>si",
 						scope_incremental = "<Leader>sc",
 						node_decremental = "<Leader>sd",
