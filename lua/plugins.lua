@@ -49,6 +49,8 @@ require("lazy").setup({
     },
 
     {
+        -- :InspectTree  is a treesitter command that does not start with "TS".
+        -- Its shows an interactive tree  of the current source file.
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
