@@ -64,3 +64,58 @@ On the fly (not in config) starting a treesitter feature:
 :TSBufEnable indent|highlight|incremental selection
 ```
 
+
+## :normal command
+To e.g.  append a ';' to a set of lines, select the lines (V) and type the vim
+normal-mode commands in the ex prompt. Eg. A; would append a ';' to a line.
+Select multiple lines with V and the type   :normal A;  to append to all the lines.
+
+## increasing numbers: ctrl-a
+## decreasing numbers: ctrl-x
+
+Works also voor multiple selected lines (V)
+And with ctrl-a prefixed with 'g' numbers will be increased each line
+
+16
+16
+17
+18
+19
+20
+21
+
+
+## when selecting lines, 'o' switches which end of the selection the cursor is.
+
+## '%' switches to the matching bracket ([<
+'%' is a motion you can use to e.g. delete between matching brackets.
+
+
+## 'i' or 'a' (Inside , Around) as motion for 'c' (change), 'd' (delete), 'v' (select)
+## or other commands
+## Also works on multiple lines
+
+(
+     "({hello})"
+)
+
+
+## process selected (V) lines with a external command, eg. jq to pretty print selected
+## lines of json:
+
+    :'<,'>!jq .
+
+(yes, include the period in the command above)
+
+
+Other command to create big letters:
+
+
+     Title
+
+
+Select the title and run ex comand:
+
+    :'<,'>!toilet -w200 -f mono9
+
+
