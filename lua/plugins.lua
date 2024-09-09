@@ -1,17 +1,17 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -50,14 +50,14 @@ require("lazy").setup({
 
     {
         -- :InspectTree  is a treesitter command that does not start with "TS".
-        -- Its shows an interactive tree  of the current source file.
+        --               It shows an interactive tree  of the current source file.
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
-                sync_install = false, -- Install parsers synchronously (only applied to `ensure_installed`)
-                auto_install = true,
+                sync_install = true, -- Install parsers synchronously (only applied to `ensure_installed`)
+                --auto_install = true,
 
                 highlight = {
                     enable = true,
@@ -139,7 +139,24 @@ require("lazy").setup({
 
     {
         "jbyuki/venn.nvim",
-    }
+    },
+
+    -- Useless fun
+    --   :CellularAutomaton make_it_rain
+    --   :CellularAutomaton game_of_life
+    --
+    --   vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+    {
+        "eandrju/cellular-automaton.nvim",
+        keys = {
+            {
+                "<Leader>cal", "<cmd>CellularAutomaton game_of_life<CR>", 
+            },
+            {
+                "<Leader>car", "<cmd>CellularAutomaton make_it_rain<CR>", 
+            },
+        },
+    },
 })
 
 
