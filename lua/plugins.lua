@@ -40,13 +40,7 @@ require("lazy").setup({
     "EdenEast/nightfox.nvim",
     "sainnhe/edge",
     "sainnhe/everforest",
-    {
-        "rebelot/kanagawa.nvim",
-
-        config = function()
-            vim.cmd.colorscheme("kanagawa-wave")
-        end,
-    },
+    "rebelot/kanagawa.nvim",
 
     {
         -- :InspectTree  is a treesitter command that does not start with "TS".
@@ -124,6 +118,7 @@ require("lazy").setup({
         end,
     },
 
+
     {  -- "powerpoint alternative"
         "sotte/presenting.nvim",
         opts = {
@@ -149,26 +144,21 @@ require("lazy").setup({
     {
         "eandrju/cellular-automaton.nvim",
         keys = {
-            {
-                "<Leader>cal", "<cmd>CellularAutomaton game_of_life<CR>", 
-            },
-            {
-                "<Leader>car", "<cmd>CellularAutomaton make_it_rain<CR>", 
-            },
+            { "<Leader>cal", "<cmd>CellularAutomaton game_of_life<CR>", },
+            { "<Leader>car", "<cmd>CellularAutomaton make_it_rain<CR>", },
         },
     },
+
+    -- LSP
+    {
+        "neovim/nvim-lspconfig",
+    }
 })
 
 
 
 
-
--- key maps --
-
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
+require'lspconfig'.pylsp.setup{}
 
 
 -- venn.nvim: enable or disable keymappings
@@ -194,5 +184,17 @@ function _G.Toggle_venn()
         vim.b.venn_enabled = nil
     end
 end
+
+
+
+
+-- key maps --
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
 -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true})
+
+
