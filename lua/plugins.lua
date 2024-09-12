@@ -40,7 +40,17 @@ require("lazy").setup({
     "EdenEast/nightfox.nvim",
     "sainnhe/edge",
     "sainnhe/everforest",
+
+    -- light colorschemes (or includes light variant)
+    -- most variants need :vim.o.background = 'light' to become light
     "rebelot/kanagawa.nvim",
+    "mkarmona/materialbox",
+    "sonph/onehalf",
+    "rakr/vim-two-firewatch",
+    "cocopon/iceberg.vim",
+    "navarasu/onedark.nvim",
+    "maxmx03/solarized.nvim",
+    { "rose-pine/neovim", name = "rose-pine" },
 
     {
         -- :InspectTree  is a treesitter command that does not start with "TS".
@@ -118,6 +128,15 @@ require("lazy").setup({
         end,
     },
 
+    { -- plugins/telescope.lua
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+    },
 
     {  -- "powerpoint alternative"
         "sotte/presenting.nvim",
@@ -126,10 +145,6 @@ require("lazy").setup({
             -- see :help Presenting.config
         },
         cmd = { "Presenting" },
-    },
-
-    {
-        "nvim-treesitter/nvim-treesitter-textobjects",
     },
 
     {
@@ -158,7 +173,7 @@ require("lazy").setup({
 
 
 
-require'lspconfig'.pylsp.setup{}
+require"lspconfig".pylsp.setup{}
 
 
 -- venn.nvim: enable or disable keymappings
