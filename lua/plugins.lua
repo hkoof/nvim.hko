@@ -1,17 +1,17 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -40,24 +40,28 @@ require("lazy").setup({
     "EdenEast/nightfox.nvim",
     "sainnhe/edge",
     "sainnhe/everforest",
-    {
-        "rebelot/kanagawa.nvim",
 
-        config = function()
-            vim.cmd.colorscheme("kanagawa-wave")
-        end,
-    },
+    -- light colorschemes (or includes light variant)
+    -- most variants need :vim.o.background = 'light' to become light
+    "rebelot/kanagawa.nvim",
+    "mkarmona/materialbox",
+    "sonph/onehalf",
+    "rakr/vim-two-firewatch",
+    "cocopon/iceberg.vim",
+    "navarasu/onedark.nvim",
+    "maxmx03/solarized.nvim",
+    { "rose-pine/neovim", name = "rose-pine" },
 
     {
         -- :InspectTree  is a treesitter command that does not start with "TS".
-        -- Its shows an interactive tree  of the current source file.
+        --               It shows an interactive tree  of the current source file.
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
-                sync_install = false, -- Install parsers synchronously (only applied to `ensure_installed`)
-                auto_install = true,
+                sync_install = true, -- Install parsers synchronously (only applied to `ensure_installed`)
+                --auto_install = true,
 
                 highlight = {
                     enable = true,
@@ -124,6 +128,16 @@ require("lazy").setup({
         end,
     },
 
+    { -- plugins/telescope.lua
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+
     {  -- "powerpoint alternative"
         "sotte/presenting.nvim",
         opts = {
@@ -134,24 +148,32 @@ require("lazy").setup({
     },
 
     {
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        "jbyuki/venn.nvim",
     },
 
+    -- Useless fun
+    --   :CellularAutomaton make_it_rain
+    --   :CellularAutomaton game_of_life
+    --
+    --   vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
     {
-        "jbyuki/venn.nvim",
+        "eandrju/cellular-automaton.nvim",
+        keys = {
+            { "<Leader>cal", "<cmd>CellularAutomaton game_of_life<CR>", },
+            { "<Leader>car", "<cmd>CellularAutomaton make_it_rain<CR>", },
+        },
+    },
+
+    -- LSP
+    {
+        "neovim/nvim-lspconfig",
     }
 })
 
 
 
 
-
--- key maps --
-
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
+require"lspconfig".pylsp.setup{}
 
 
 -- venn.nvim: enable or disable keymappings
@@ -177,5 +199,17 @@ function _G.Toggle_venn()
         vim.b.venn_enabled = nil
     end
 end
+
+
+
+
+-- key maps --
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
 -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true})
+
+
