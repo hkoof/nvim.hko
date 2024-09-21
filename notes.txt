@@ -118,4 +118,36 @@ Select the title and run ex comand:
 
     :'<,'>!toilet -w200 -f mono9
 
+## shorthand executing lua vim-print command:
 
+This is quite common:
+```
+  :lua vim.print(vim.lsp)
+```
+
+Shorthand to do the same:
+```
+    :=vim.lsp
+```
+
+## nvim ex :command versus script
+
+ex :command
+`:echo getcwd()`
+
+is equivalent to this in a lua script:
+`print(vim.fn.getcwd())`
+
+## list autocommand (callback) events within neovim
+
+`:h events`
+
+## call up LSP hover window manually (with the cursor on a function header line)
+
+`:lua vim.lsp.buf.hover()`
+
+List all possible LSP functions:
+
+:=vim.lsp.buf
+
+## 
