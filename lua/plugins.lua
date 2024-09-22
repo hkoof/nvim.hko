@@ -41,15 +41,17 @@ require("lazy").setup({
     "sainnhe/edge",
     "sainnhe/everforest",
 
+    "kyazdani42/blue-moon",
+    "shaunsingh/nord.nvim",
+    "rmehri01/onenord.nvim",
+
     -- light colorschemes (or includes light variant)
     -- most variants need :vim.o.background = 'light' to become light
     "rebelot/kanagawa.nvim",
     "mkarmona/materialbox",
-    "sonph/onehalf",
     "rakr/vim-two-firewatch",
     "cocopon/iceberg.vim",
     "navarasu/onedark.nvim",
-    "maxmx03/solarized.nvim",
     { "rose-pine/neovim", name = "rose-pine" },
 
     {
