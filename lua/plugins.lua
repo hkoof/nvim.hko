@@ -169,14 +169,21 @@ require("lazy").setup({
     -- LSP
     {
         "neovim/nvim-lspconfig",
+    },
+
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
     }
+
 })
-
-
 
 
 require"lspconfig".pylsp.setup{}
 
+require('lualine').setup {
+--     options = { theme  = custom_gruvbox },
+}
 
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()
