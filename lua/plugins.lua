@@ -194,8 +194,6 @@ require("lazy").setup({
 
             -- Only one of these is needed.
             "nvim-telescope/telescope.nvim", -- optional
-            "ibhagwan/fzf-lua",              -- optional
-            "echasnovski/mini.pick",         -- optional
         },
         config = true
     },
@@ -210,9 +208,11 @@ require("lazy").setup({
 
 
 
-
 require"lspconfig".pylsp.setup{}
 
+require('lualine').setup {
+--     options = { theme  = custom_gruvbox },
+}
 
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()
