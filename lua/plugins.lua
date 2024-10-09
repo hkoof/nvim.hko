@@ -36,6 +36,8 @@ vim.opt.rtp:prepend(lazypath)
 --  })
 
 require("lazy").setup({
+    { "tjdevries/colorbuddy.nvim", },
+
     "romainl/Apprentice",
     "EdenEast/nightfox.nvim",
     "sainnhe/edge",
@@ -44,6 +46,7 @@ require("lazy").setup({
     "kyazdani42/blue-moon",
     "shaunsingh/nord.nvim",
     "rmehri01/onenord.nvim",
+    "mhartington/oceanic-next",
 
     -- light colorschemes (or includes light variant)
     -- most variants need :vim.o.background = 'light' to become light
@@ -52,6 +55,7 @@ require("lazy").setup({
     "rakr/vim-two-firewatch",
     "cocopon/iceberg.vim",
     "navarasu/onedark.nvim",
+    "folke/tokyonight.nvim",
     { "rose-pine/neovim", name = "rose-pine" },
 
     {
@@ -169,7 +173,39 @@ require("lazy").setup({
     -- LSP
     {
         "neovim/nvim-lspconfig",
-    }
+    },
+
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        }
+    },
+
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",         -- required
+            "sindrets/diffview.nvim",        -- optional - Diff integration
+
+            -- Only one of these is needed.
+            "nvim-telescope/telescope.nvim", -- optional
+            "ibhagwan/fzf-lua",              -- optional
+            "echasnovski/mini.pick",         -- optional
+        },
+        config = true
+    },
+
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {},
+    },
+
 })
 
 
