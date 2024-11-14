@@ -38,25 +38,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { "tjdevries/colorbuddy.nvim", },
 
+    -- colorschemes having a light variant may need :vim.o.background = 'light' to become light
     "romainl/Apprentice",
     "EdenEast/nightfox.nvim",
-    "sainnhe/edge",
-    "sainnhe/everforest",
-
-    "kyazdani42/blue-moon",
-    "shaunsingh/nord.nvim",
-    "rmehri01/onenord.nvim",
     "mhartington/oceanic-next",
-
-    -- light colorschemes (or includes light variant)
-    -- most variants need :vim.o.background = 'light' to become light
     "rebelot/kanagawa.nvim",
-    "mkarmona/materialbox",
-    "rakr/vim-two-firewatch",
     "cocopon/iceberg.vim",
-    "navarasu/onedark.nvim",
-    "folke/tokyonight.nvim",
-    { "rose-pine/neovim", name = "rose-pine" },
 
     {
         -- :InspectTree  is a treesitter command that does not start with "TS".
@@ -67,7 +54,7 @@ require("lazy").setup({
             require("nvim-treesitter.configs").setup({
                 ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
                 sync_install = true, -- Install parsers synchronously (only applied to `ensure_installed`)
-                --auto_install = true,
+                -- auto_install = true,
 
                 highlight = {
                     enable = true,
