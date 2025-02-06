@@ -40,10 +40,24 @@ require("lazy").setup({
 
     -- colorschemes having a light variant may need :vim.o.background = 'light' to become light
     "romainl/Apprentice",
-    "EdenEast/nightfox.nvim",
     "mhartington/oceanic-next",
     "rebelot/kanagawa.nvim",
     "cocopon/iceberg.vim",
+
+    { "EdenEast/nightfox.nvim", 
+         opts = {
+             groups = {
+                 terafox = {
+                     -- :hi LineNr
+                     LineNr = { style = "italic", bg = "#203035" },
+
+                     -- Other examples:
+                     -- :hi StatusLine
+                     -- :hi StatusLineNC  (inactive)
+                 },
+             },
+         },
+    },
 
     {
         -- :InspectTree  is a treesitter command that does not start with "TS".
@@ -52,7 +66,7 @@ require("lazy").setup({
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
+                ensure_installed = { "c", "lua", "luadoc", "markdown", "markdown_inline", "vim", "vimdoc", "query", "python" },
                 sync_install = true, -- Install parsers synchronously (only applied to `ensure_installed`)
                 -- auto_install = true,
 
