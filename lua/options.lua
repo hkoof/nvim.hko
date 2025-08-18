@@ -13,7 +13,7 @@ vim.opt.shiftwidth = 4
 vim.opt.clipboard = "unnamedplus"
 
 -- makes the cursor stay in the centre of the buffer when scrolling
---vim.opt.scrolloff = 999
+-- vim.opt.scrolloff = 999
 
 vim.opt.virtualedit = "block"
 

@@ -179,12 +179,19 @@ require("lazy").setup({
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
+        lazy = false,  -- neo-tree lazy-loads itself
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
             -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-        }
+        },
+        opts = {
+            window = {
+                position = 'right',
+            },
+            enable_cursor_hijack = true,
+        },
     },
 
     {
