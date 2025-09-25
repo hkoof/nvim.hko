@@ -50,6 +50,7 @@ require("lazy").setup({
                  terafox = {
                      -- :hi LineNr
                      LineNr = { style = "italic", bg = "#203035" },
+                     StatusLine = { bg = "#ffffff" },
 
                      -- Other examples:
                      -- :hi StatusLine
@@ -171,10 +172,10 @@ require("lazy").setup({
         },
     },
 
-    -- LSP
-    {
-        "neovim/nvim-lspconfig",
-    },
+-- LSP disabled due to API change
+--    {
+--        "neovim/nvim-lspconfig",
+--    },
 
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -215,8 +216,8 @@ require("lazy").setup({
 })
 
 
-
-require"lspconfig".pylsp.setup{}
+-- LSP disabled due to API change
+-- require"lspconfig".pylsp.setup{}
 
 require('lualine').setup {
 --     options = { theme  = custom_gruvbox },
