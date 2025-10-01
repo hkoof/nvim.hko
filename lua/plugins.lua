@@ -44,6 +44,13 @@ require("lazy").setup({
     "rebelot/kanagawa.nvim",
     "cocopon/iceberg.vim",
 
+    {
+        "craftzdog/solarized-osaka.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+
     { "EdenEast/nightfox.nvim", 
          opts = {
              groups = {
