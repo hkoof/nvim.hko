@@ -67,6 +67,41 @@ require("lazy").setup({
          },
     },
 
+
+-- subdued colorschemes
+
+    {
+        'jesseleite/nvim-noirbuddy',
+        dependencies = {
+            { 'tjdevries/colorbuddy.nvim' }
+        },
+        lazy = false,
+        priority = 1000,
+        opts = {
+            -- All of your `setup(opts)` will go here
+        },
+    },
+
+
+    {
+        "aktersnurra/no-clown-fiesta.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            theme = "dark",
+            transparent = false, -- Enable this to disable the bg color
+            styles = {
+                type = { bold = true },
+                lsp = { underline = false },
+                match_paren = { underline = true },
+            },
+        }
+    },
+    -- to customize LineNr this works manually on the : prompt. But how to do it here?
+    --   lua vim.api.nvim_set_hl(0, "LineNr", { bg = "#1c1c1c", italic = true })
+    --   lua vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#1c1c1c", italic = true, bold = true })
+    --   lua vim.api.nvim_set_hl(0, "SignColumn",   { bg = "#1c1c1c" })
+
     {
         -- :InspectTree  is a treesitter command that does not start with "TS".
         --               It shows an interactive tree  of the current source file.
