@@ -1,0 +1,10 @@
+{
+  "Apprentice": { "branch": "master", "commit": "2a4557410fe6b5e3906c5290d42c4e4d8813b0d8" },
+  "colorbuddy.nvim": { "branch": "master", "commit": "8b968581e5c19d22a861d5f3fe5dbd83394fa681" },
+  "lazy.nvim": { "branch": "main", "commit": "59334064f8604ca073791c25dcc5c9698865406e" },
+  "lualine.nvim": { "branch": "master", "commit": "b8c23159c0161f4b89196f74ee3a6d02cdc3a955" },
+  "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
+  "no-clown-fiesta.nvim": { "branch": "master", "commit": "04b808e9769ded988089772ffcaf08d92d75d927" },
+  "nvim-noirbuddy": { "branch": "master", "commit": "31cf2c7d8dc3dda5bf2b91b9c0796ed3677e0527" },
+  "nvim-web-devicons": { "branch": "master", "commit": "b8221e42cf7287c4dcde81f232f58d7b947c210d" }
+}
