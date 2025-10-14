@@ -1,5 +1,3 @@
--- vim.cmd.colorscheme("unokai")
-
 -- Basic settings
 vim.opt.number = true                              -- Line numbers
 vim.opt.relativenumber = true                      -- Relative line numbers
