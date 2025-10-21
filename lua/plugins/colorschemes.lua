@@ -1,5 +1,5 @@
 return {
-    { "romainl/Apprentice",
+    { "p00f/alabaster.nvim",
          lazy = false,
     },
 
