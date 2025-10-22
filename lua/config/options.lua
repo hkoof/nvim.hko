@@ -61,7 +61,7 @@ vim.opt.autochdir = false                          -- Don't auto change director
 vim.opt.iskeyword:append("-")                      -- Treat dash as part of word
 vim.opt.path:append("**")                          -- include subdirectories in search
 vim.opt.selection = "exclusive"                    -- Selection behavior
-vim.opt.mouse = "a"                                -- Enable mouse support
+vim.opt.mouse = ""                                -- Enable mouse support
 vim.opt.clipboard:append("unnamedplus")            -- Use system clipboard
 vim.opt.modifiable = true                          -- Allow buffer modifications
 vim.opt.encoding = "UTF-8"                         -- Set encoding
