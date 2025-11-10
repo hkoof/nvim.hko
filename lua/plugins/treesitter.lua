@@ -1,3 +1,7 @@
+-- Note:
+-- You can set the parser explicitly for a buffer with:
+--   :set filetype=json
+
 return {
     {"nvim-treesitter/nvim-treesitter",
         branch = 'master',
