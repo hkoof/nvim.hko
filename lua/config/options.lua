@@ -126,7 +126,21 @@ vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
 -- Quick config editing
-vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim/lua/config/options.lua<CR>", { desc = "Edit config" })
+-- original: vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim/lua/config/options.lua<CR>", { desc = "Edit config" })
+vim.keymap.set("n", "<leader>rc", function()
+  local file1 = vim.fn.expand("~/.config/nvim/lua/config/options.lua")
+  local file2 = vim.fn.expand("~/.config/nvim/lua/plugins/")
+
+  -- Open the main config file
+  vim.cmd("edit " .. vim.fn.fnameescape(file1))
+
+  -- If the second file exists, open it in a vertical split
+  if vim.fn.filereadable(file2) == 1  or vim.fn.isdirectory(file2) == 1 then
+    vim.cmd("vsplit " .. vim.fn.fnameescape(file2))
+  else
+    vim.notify("File not found: " .. file2, vim.log.levels.WARN)
+  end
+end, { desc = "Edit config" })
 
 -- ============================================================================
 -- USEFUL FUNCTIONS
