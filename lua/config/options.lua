@@ -63,7 +63,8 @@ vim.opt.autochdir = false                          -- Don't auto change director
 vim.opt.path:append("**")                          -- include subdirectories in search
 vim.opt.selection = "exclusive"                    -- Selection behavior
 vim.opt.mouse = ""                                -- Enable mouse support
-vim.opt.clipboard:append("unnamedplus")            -- Use system clipboard
+vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard:append("unnamedplus")            -- Use system clipboard
 vim.opt.modifiable = true                          -- Allow buffer modifications
 vim.opt.encoding = "UTF-8"                         -- Set encoding
 
@@ -368,6 +369,9 @@ vim.cmd([[
   hi TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
 ]])
 
+-- Alternative for Escape key
+vim.keymap.set('i', 'qq', '<Esc>', { desc = 'Alternative Escape' })
+
 -- Alternative navigation (more intuitive)
 vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'New tab' })
 vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
@@ -432,5 +436,4 @@ local function smart_close_buffer()
   end
 end
 vim.keymap.set('n', '<leader>bd', smart_close_buffer, { desc = 'Smart close buffer/tab' })
-
 
