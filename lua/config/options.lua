@@ -123,6 +123,12 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
 vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
 
+-- Print full path of file in buffer
+vim.keymap.set("n", "<leader>fp", function()
+  local p = vim.fn.expand("%:p")
+  print(p)
+end, { desc = "Show full file path" })
+
 -- Better J behavior
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
