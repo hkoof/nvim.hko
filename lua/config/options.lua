@@ -431,15 +431,17 @@ vim.keymap.set('n', '<leader>td', duplicate_tab, { desc = 'Duplicate current tab
 vim.keymap.set('n', '<leader>tr', close_tabs_right, { desc = 'Close tabs to the right' })
 vim.keymap.set('n', '<leader>tL', close_tabs_left, { desc = 'Close tabs to the left' })
 
--- Function to close buffer but keep tab if it's the only buffer in tab
-local function smart_close_buffer()
-  local buffers_in_tab = #vim.fn.tabpagebuflist()
-  if buffers_in_tab > 1 then
-    vim.cmd('bdelete')
-  else
-    -- If it's the only buffer in tab, close the tab
-    vim.cmd('tabclose')
-  end
-end
-vim.keymap.set('n', '<leader>bd', smart_close_buffer, { desc = 'Smart close buffer/tab' })
-
+-- -- EXAMPLE Use Telescope plugin to navigate buffers
+-- require('telescope').setup({
+--   pickers = {
+--     buffers = {
+--       show_all_buffers = true,
+--       sort_mru = true,
+--       mappings = {
+--         i = {
+--           ["<c-d>"] = "delete_buffer",
+--         },
+--       },
+--     },
+--   },
+-- })
