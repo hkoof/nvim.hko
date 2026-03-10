@@ -382,6 +382,21 @@ end
 -- vim.keymap.set("n", "<leader>t", ToggleTerm)
 
 
+-- -- Other tip (by AI, not tested yet)
+-- vim.keymap.set("n", "<leader>r", function()
+--   vim.cmd("w")
+-- 
+--   local file = vim.fn.expand("%")
+-- 
+--   if vim.bo.filetype == "python" then
+--     vim.cmd("split | terminal python " .. file)
+--   elseif vim.bo.filetype == "lua" then
+--     vim.cmd("split | terminal lua " .. file)
+--   elseif vim.bo.filetype == "c" then
+--     vim.cmd("split | terminal gcc " .. file .. " && ./a.out")
+--   end
+-- end)
+
 -- Key mappings
 vim.keymap.set("n", "<leader>t", FloatingTerminal, { noremap = true, silent = true, desc = "Toggle floating terminal" })
 vim.keymap.set("t", "<Esc>", function()
