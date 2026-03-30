@@ -352,6 +352,51 @@ local function CloseFloatingTerminal()
   end
 end
 
+-- Alternative (by AI, not tried yet):
+-- Do not close terminal buffers, but keep only one and hide it and make it
+-- reappear when needed
+--
+-- -- toggle terminal
+-- local term_buf = nil
+-- local term_win = nil
+-- 
+-- function ToggleTerm()
+--   if term_win and vim.api.nvim_win_is_valid(term_win) then
+--     vim.api.nvim_win_close(term_win, true)
+--     term_win = nil
+--   else
+--     vim.cmd("botright split")
+--     vim.cmd("resize 12")
+-- 
+--     if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+--       vim.api.nvim_win_set_buf(0, term_buf)
+--     else
+--       vim.cmd("terminal")
+--       term_buf = vim.api.nvim_get_current_buf()
+--     end
+-- 
+--     term_win = vim.api.nvim_get_current_win()
+--   end
+-- end
+-- 
+-- vim.keymap.set("n", "<leader>t", ToggleTerm)
+
+
+-- -- Other tip (by AI, not tested yet)
+-- vim.keymap.set("n", "<leader>r", function()
+--   vim.cmd("w")
+-- 
+--   local file = vim.fn.expand("%")
+-- 
+--   if vim.bo.filetype == "python" then
+--     vim.cmd("split | terminal python " .. file)
+--   elseif vim.bo.filetype == "lua" then
+--     vim.cmd("split | terminal lua " .. file)
+--   elseif vim.bo.filetype == "c" then
+--     vim.cmd("split | terminal gcc " .. file .. " && ./a.out")
+--   end
+-- end)
+
 -- Key mappings
 vim.keymap.set("n", "<leader>t", FloatingTerminal, { noremap = true, silent = true, desc = "Toggle floating terminal" })
 vim.keymap.set("t", "<Esc>", function()
@@ -431,15 +476,17 @@ vim.keymap.set('n', '<leader>td', duplicate_tab, { desc = 'Duplicate current tab
 vim.keymap.set('n', '<leader>tr', close_tabs_right, { desc = 'Close tabs to the right' })
 vim.keymap.set('n', '<leader>tL', close_tabs_left, { desc = 'Close tabs to the left' })
 
--- Function to close buffer but keep tab if it's the only buffer in tab
-local function smart_close_buffer()
-  local buffers_in_tab = #vim.fn.tabpagebuflist()
-  if buffers_in_tab > 1 then
-    vim.cmd('bdelete')
-  else
-    -- If it's the only buffer in tab, close the tab
-    vim.cmd('tabclose')
-  end
-end
-vim.keymap.set('n', '<leader>bd', smart_close_buffer, { desc = 'Smart close buffer/tab' })
-
+-- -- EXAMPLE Use Telescope plugin to navigate buffers
+-- require('telescope').setup({
+--   pickers = {
+--     buffers = {
+--       show_all_buffers = true,
+--       sort_mru = true,
+--       mappings = {
+--         i = {
+--           ["<c-d>"] = "delete_buffer",
+--         },
+--       },
+--     },
+--   },
+-- })
