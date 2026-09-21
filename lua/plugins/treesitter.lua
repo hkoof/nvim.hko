@@ -20,7 +20,8 @@ return {
                     "query",
                     "python",
                     "yaml",
-                    "json"
+                    "json",
+                    "javascript",
                 },
 
                 sync_install = true, -- Install parsers synchronously (only applied to `ensure_installed`)
