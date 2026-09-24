@@ -2,6 +2,12 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        opts = {},
+
+        -- See: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+        opts = {
+            options = {
+                theme = "Tomorrow",
+            },
+        },
     },
 }
