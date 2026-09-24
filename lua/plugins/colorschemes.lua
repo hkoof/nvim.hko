@@ -11,7 +11,6 @@ return {
                  terafox = {
                      -- :hi LineNr
                      LineNr = { style = "italic", bg = "#203035" },
-                     StatusLine = { bg = "#ffffff" },
 
                      -- Other examples:
                      -- :hi StatusLine
