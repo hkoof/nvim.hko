@@ -7,7 +7,3 @@ vim.cmd.colorscheme("terafox")
 vim.api.nvim_set_hl(0, "WinSeparator", {
   fg = "#AAAAAA",
 })
-
--- ngit-tree recommends disabling netrw entirelu
-vim.g.loaded_netrw       = 1
-vim.g.loaded_netrwPlugin = 1
