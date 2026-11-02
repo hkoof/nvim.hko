@@ -19,6 +19,7 @@ return {
                     "vimdoc",
                     "query",
                     "python",
+                    "puppet",
                     "yaml",
                     "json",
                     "javascript",
